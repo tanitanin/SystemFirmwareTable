@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="ReadSMBIOS.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:ReadSMBIOS.Core.Models"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Grid
+        x:Name="ContentArea"
+        Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            x:Uid="Main_Title"
+            Style="{StaticResource PageTitleStyle}" />
+        <!--<Grid
+            Grid.Row="1" 
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">-->
+        <Grid
+            Grid.Row="1" >
+            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.-->
+            <ItemsControl
+                ItemsSource="{x:Bind ViewModel.BIOSTable.Items, Mode=OneWay}">
+                <ScrollViewer>
+                    <StackPanel>
+                        <ItemsPresenter/>
+                    </StackPanel>
+                </ScrollViewer>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate
+                        x:DataType="models:BIOSStructureItem">
+                        <toolkit:Expander
+                            Header="{Binding Header}">
+                            <toolkit:DataGrid
+                                ItemsSource="{Binding Items, Mode=OneWay}">
+                            </toolkit:DataGrid>
+                        </toolkit:Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</Page>

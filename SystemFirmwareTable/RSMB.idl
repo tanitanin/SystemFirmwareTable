@@ -1,0 +1,56 @@
+namespace SystemFirmwareTable
+{
+	runtimeclass RSMB;
+	runtimeclass SMBIOSData;
+	runtimeclass SMBIOSStructure;
+	runtimeclass SMBIOSField;
+
+	[version(1.0)]
+	[default_interface]
+	runtimeclass RSMB
+	{
+		static SMBIOSData Load();
+	}
+
+	[version(1.0)]
+	[default_interface]
+	runtimeclass SMBIOSData
+	{
+		UInt8   Used20CallingMethod{ get; };
+		UInt8   SMBIOSMajorVersion{ get; };
+		UInt8   SMBIOSMinorVersion{ get; };
+		UInt8   DmiRevision{ get; };
+		Int32	Length{ get; };
+		Windows.Foundation.Collections.IVectorView<SystemFirmwareTable.SMBIOSStructure> SMBIOSTableData{ get; };
+	}
+
+	[version(1.0)]
+	[default_interface]
+	runtimeclass SMBIOSStructure
+	{
+		UInt8	Type{ get; };
+		UInt8	Length{ get; };
+		UInt16	Handle{ get; };
+		Windows.Foundation.Collections.IVectorView<SystemFirmwareTable.SMBIOSField> Values{ get; };
+
+		String Name{ get; };
+
+		UInt8 GetByte(UInt8 offset);
+		UInt16 GetWord(UInt8 offset);
+		UInt32 GetDword(UInt8 offset);
+		UInt64 GetQword(UInt8 offset);
+		String GetString(UInt8 offset);
+		Windows.Foundation.Collections.IVectorView<UInt8> GetBytes(UInt8 offset, UInt8 size);
+	}
+
+	[version(1.0)]
+	[default_interface]
+	runtimeclass SMBIOSField 
+	{
+		UInt8	Offset{ get; };
+		String	Name{ get; };
+		String	Type{ get; };
+		Object	Value{ get; };
+		String	Description{ get; };
+	}
+}
