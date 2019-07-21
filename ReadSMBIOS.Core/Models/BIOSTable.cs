@@ -22,6 +22,7 @@ namespace ReadSMBIOS.Core.Models
             foreach (var structure in data.SMBIOSTableData)
             {
                 if (structure.Type == 0x0) Items.Add(new BIOSStructureItem(structure));
+                else if (structure.Type == 0x1) Items.Add(new BIOSStructureItem(structure));
             }
         }
     }

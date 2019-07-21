@@ -175,7 +175,14 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(3, 2)) vec.push_back(make_field_word(0x18, L"Extended BIOS ROM Size"));
 		}
 		else if (Type() == 1) {
-
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x04, L"Manufacturer"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x05, L"Product Name"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x06, L"Version"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x07, L"Serial Number"));
+			if (check_version(2, 1)) vec.push_back(make_field_bytes(0x08, 16, L"UUID"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x18, L"Wake-up Type"));
+			if (check_version(2, 4)) vec.push_back(make_field_string(0x19, L"SKU Number"));
+			if (check_version(2, 4)) vec.push_back(make_field_string(0x1A, L"Family"));
 		}
 		else if (Type() == 3) {
 

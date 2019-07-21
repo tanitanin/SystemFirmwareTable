@@ -38,7 +38,8 @@
                     <DataTemplate
                         x:DataType="models:BIOSStructureItem">
                         <toolkit:Expander
-                            Header="{Binding Header}">
+                            Header="{Binding Header}"
+                            HorizontalContentAlignment="Stretch">
                             <toolkit:DataGrid
                                 ItemsSource="{Binding Items, Mode=OneWay}">
                             </toolkit:DataGrid>
