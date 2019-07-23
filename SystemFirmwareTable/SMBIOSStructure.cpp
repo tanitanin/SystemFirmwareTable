@@ -185,7 +185,29 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(2, 4)) vec.push_back(make_field_string(0x1A, L"Family"));
 		}
 		else if (Type() == 3) {
-
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x04, L"Manufacturer"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x05, L"Type"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x06, L"Version"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x07, L"Serial Number"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x08, L"Asset Tag Number"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x09, L"Boot-up State"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0A, L"Power Supply State"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0B, L"Thermal State"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0C, L"Security Status"));
+			if (check_version(2, 3)) vec.push_back(make_field_word(0x0D, L"OEM-defined"));
+			if (check_version(2, 3)) vec.push_back(make_field_byte(0x11, L"Height"));
+			if (check_version(2, 3)) vec.push_back(make_field_byte(0x12, L"Number of Power Cords"));
+			byte n = 0, m = 0;
+			if (check_version(2, 3)) {
+				vec.push_back(make_field_byte(0x13, L"Contained Element Count"));
+				n = GetByte(0x13);
+			}
+			if (check_version(2, 3)) {
+				vec.push_back(make_field_byte(0x14, L"Contained Element Record Length"));
+				m = GetByte(0x14);
+			}
+			if (check_version(2, 3)) vec.push_back(make_field_bytes(0x15, n * m, L"Contained Element Record Length"));
+			if (check_version(2, 7)) vec.push_back(make_field_byte(0x15 + n * m, L"SKU Number"));
 		}
 		else if (Type() == 4) {
 
