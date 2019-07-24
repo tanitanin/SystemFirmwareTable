@@ -210,7 +210,32 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(2, 7)) vec.push_back(make_field_byte(0x15 + n * m, L"SKU Number"));
 		}
 		else if (Type() == 4) {
-
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x04, L"Socket Designation"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x05, L"Processor Type"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x06, L"Processor Family"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x07, L"Processor Manufacturer"));
+			if (check_version(2, 0)) vec.push_back(make_field_qword(0x08, L"Processor ID"));
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x10, L"Processor Version"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x11, L"Voltage"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x12, L"External Clock"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x14, L"Max Speed"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x16, L"Current Speed"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x18, L"Status"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x19, L"Processor Upgrade"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x1A, L"L1 Cache Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x1C, L"L2 Cache Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x1E, L"L3 Cache Handle"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x20, L"Serial Number"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x21, L"Asset Tag"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x22, L"Part Number"));
+			if (check_version(2, 5)) vec.push_back(make_field_byte(0x23, L"Core Count"));
+			if (check_version(2, 5)) vec.push_back(make_field_byte(0x24, L"Core Enabled"));
+			if (check_version(2, 5)) vec.push_back(make_field_byte(0x25, L"Thread Count"));
+			if (check_version(2, 5)) vec.push_back(make_field_word(0x26, L"Processor Characteristics"));
+			if (check_version(2, 6)) vec.push_back(make_field_word(0x28, L"Processor Family 2"));
+			if (check_version(3, 0)) vec.push_back(make_field_word(0x2A, L"Core Count 2"));
+			if (check_version(3, 0)) vec.push_back(make_field_word(0x2C, L"Core Enabled 2"));
+			if (check_version(3, 0)) vec.push_back(make_field_word(0x2E, L"Thread Count 2"));
 		}
 		else if (Type() == 7) {
 

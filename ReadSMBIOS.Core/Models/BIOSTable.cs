@@ -24,6 +24,7 @@ namespace ReadSMBIOS.Core.Models
                 if (structure.Type == 0x0) Items.Add(new BIOSStructureItem(structure));
                 else if (structure.Type == 0x1) Items.Add(new BIOSStructureItem(structure));
                 else if (structure.Type == 0x3) Items.Add(new BIOSStructureItem(structure));
+                else if (structure.Type == 0x4) Items.Add(new BIOSStructureItem(structure));
             }
         }
     }

@@ -27,26 +27,26 @@
             Grid.Row="1" >
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
-            <ItemsControl
-                ItemsSource="{x:Bind ViewModel.BIOSTable.Items, Mode=OneWay}">
-                <ScrollViewer>
-                    <StackPanel>
-                        <ItemsPresenter/>
-                    </StackPanel>
-                </ScrollViewer>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate
-                        x:DataType="models:BIOSStructureItem">
-                        <toolkit:Expander
-                            Header="{Binding Header}"
-                            HorizontalContentAlignment="Stretch">
-                            <toolkit:DataGrid
-                                ItemsSource="{Binding Items, Mode=OneWay}">
-                            </toolkit:DataGrid>
-                        </toolkit:Expander>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ScrollViewer VerticalScrollMode="Auto">
+                <ItemsControl
+                    ItemsSource="{x:Bind ViewModel.BIOSTable.Items, Mode=OneWay}">
+                        <StackPanel>
+                            <ItemsPresenter/>
+                        </StackPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate
+                            x:DataType="models:BIOSStructureItem">
+                            <toolkit:Expander
+                                Header="{Binding Header}"
+                                HorizontalContentAlignment="Stretch">
+                                <toolkit:DataGrid
+                                    ItemsSource="{Binding Items, Mode=OneWay}">
+                                </toolkit:DataGrid>
+                            </toolkit:Expander>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>
