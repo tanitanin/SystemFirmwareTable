@@ -21,10 +21,16 @@ namespace ReadSMBIOS.Core.Models
             Version = $"{data.SMBIOSMajorVersion}.{data.SMBIOSMinorVersion}";
             foreach (var structure in data.SMBIOSTableData)
             {
-                if (structure.Type == 0x0) Items.Add(new BIOSStructureItem(structure));
-                else if (structure.Type == 0x1) Items.Add(new BIOSStructureItem(structure));
-                else if (structure.Type == 0x3) Items.Add(new BIOSStructureItem(structure));
-                else if (structure.Type == 0x4) Items.Add(new BIOSStructureItem(structure));
+                switch (structure.Type)
+                {
+                    case 0x0:
+                    case 0x1:
+                    case 0x3:
+                    case 0x4:
+                    case 0x7:
+                        Items.Add(new BIOSStructureItem(structure));
+                        break;
+                }
             }
         }
     }

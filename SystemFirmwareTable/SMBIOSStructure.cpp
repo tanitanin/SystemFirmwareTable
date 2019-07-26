@@ -238,7 +238,18 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(3, 0)) vec.push_back(make_field_word(0x2E, L"Thread Count 2"));
 		}
 		else if (Type() == 7) {
-
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x04, L"Socket Designation"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x05, L"Cache Configuration"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x07, L"Maximum Cache Size"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x09, L"Installed Size"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x0B, L"Supported SRAM Type"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x0D, L"Current SRAM Type"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x0F, L"Cache Speed"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x10, L"Error Correction Type"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x11, L"System Cache Type"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x12, L"Associativity"));
+			if (check_version(3, 1)) vec.push_back(make_field_dword(0x13, L"Maximum Cache Size 2"));
+			if (check_version(3, 1)) vec.push_back(make_field_dword(0x17, L"Installed Cache Size 2"));
 		}
 		else if (Type() == 9) {
 
