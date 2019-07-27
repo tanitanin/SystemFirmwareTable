@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace ReadSMBIOS.Core.Models
@@ -19,7 +20,7 @@ namespace ReadSMBIOS.Core.Models
             var data = SystemFirmwareTable.RSMB.Load();
             Length = data.Length;
             Version = $"{data.SMBIOSMajorVersion}.{data.SMBIOSMinorVersion}";
-            foreach (var structure in data.SMBIOSTableData)
+            foreach (var structure in data.SMBIOSTableData.OrderBy(x=>x.Type))
             {
                 switch (structure.Type)
                 {
