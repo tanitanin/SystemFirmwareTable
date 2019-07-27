@@ -206,7 +206,7 @@ namespace winrt::SystemFirmwareTable::implementation
 				vec.push_back(make_field_byte(0x14, L"Contained Element Record Length"));
 				m = GetByte(0x14);
 			}
-			if (check_version(2, 3)) vec.push_back(make_field_bytes(0x15, n * m, L"Contained Element Record Length"));
+			if (check_version(2, 3)) vec.push_back(make_field_bytes(0x15, n * m, L"Contained Element Record"));
 			if (check_version(2, 7)) vec.push_back(make_field_byte(0x15 + n * m, L"SKU Number"));
 		}
 		else if (Type() == 4) {
