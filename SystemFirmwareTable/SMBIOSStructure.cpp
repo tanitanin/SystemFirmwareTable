@@ -252,7 +252,24 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(3, 1)) vec.push_back(make_field_dword(0x17, L"Installed Cache Size 2"));
 		}
 		else if (Type() == 9) {
-
+			if (check_version(2, 0)) vec.push_back(make_field_string(0x04, L"Slot Designation"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x05, L"Slot Type"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x06, L"Slot Data Bus Width"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x07, L"Current Usage"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x08, L"Slot Length"));
+			if (check_version(2, 0)) vec.push_back(make_field_word(0x09, L"Slot ID"));
+			if (check_version(2, 0)) vec.push_back(make_field_byte(0x0B, L"Slot Characteristics 1"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0C, L"Slot Characteristics 2"));
+			if (check_version(2, 6)) vec.push_back(make_field_word(0x0D, L"Segment Group Number (Base)"));
+			if (check_version(2, 6)) vec.push_back(make_field_byte(0x0F, L"Bus Number (Base) "));
+			if (check_version(2, 6)) vec.push_back(make_field_byte(0x10, L"Device/Function Number(Base)"));
+			if (check_version(3, 2)) vec.push_back(make_field_byte(0x11, L"Data Bus Width (Base)"));
+			byte n = 0;
+			if (check_version(3, 2)) { 
+				vec.push_back(make_field_byte(0x12, L"Peer (S/B/D/F/Width) grouping count(n)"));
+				n = GetByte(0x12);
+			}
+			if (check_version(3, 2)) vec.push_back(make_field_bytes(0x13, 5 * n,  L"Peer (S/B/D/F/Width) groups"));
 		}
 		else if (Type() == 16) {
 
