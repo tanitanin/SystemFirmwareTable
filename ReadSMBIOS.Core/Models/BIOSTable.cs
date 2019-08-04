@@ -24,12 +24,13 @@ namespace ReadSMBIOS.Core.Models
             {
                 switch (structure.Type)
                 {
-                    case 0x0:
-                    case 0x1:
-                    case 0x3:
-                    case 0x4:
-                    case 0x7:
-                    case 0x9:
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 4:
+                    case 7:
+                    case 9:
+                    case 16:
                         Items.Add(new BIOSStructureItem(structure));
                         break;
                 }

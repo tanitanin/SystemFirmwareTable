@@ -272,7 +272,13 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(3, 2)) vec.push_back(make_field_bytes(0x13, 5 * n,  L"Peer (S/B/D/F/Width) groups"));
 		}
 		else if (Type() == 16) {
-
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x04, L"Location"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x05, L"Use"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x06, L"Memory Error Correction"));
+			if (check_version(2, 1)) vec.push_back(make_field_dword(0x07, L"Maximum Capacity"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x0B, L"Memory Error Information Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x0D, L"Number of Memory Devices"));
+			if (check_version(2, 7)) vec.push_back(make_field_qword(0x0F, L"Extended Maximum Capacity"));
 		}
 		else if (Type() == 17) {
 
