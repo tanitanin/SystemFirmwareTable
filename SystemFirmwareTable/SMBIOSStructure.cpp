@@ -281,10 +281,42 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(2, 7)) vec.push_back(make_field_qword(0x0F, L"Extended Maximum Capacity"));
 		}
 		else if (Type() == 17) {
-
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x04, L"Physical Memory Array Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x06, L"Memory Error Information Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x08, L"Total Width"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x0A, L"Data Width"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x0C, L"Size"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0E, L"Form Factor"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0F, L"Device Set"));
+			if (check_version(2, 1)) vec.push_back(make_field_string(0x10, L"Device Locator"));
+			if (check_version(2, 1)) vec.push_back(make_field_string(0x11, L"Bank Locator "));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x12, L"Memory Type"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x13, L"Type Detail"));
+			if (check_version(2, 3)) vec.push_back(make_field_word(0x15, L"Speed"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x17, L"Manufacturer"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x18, L"Serial Number"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x19, L"Asset Tag"));
+			if (check_version(2, 3)) vec.push_back(make_field_string(0x1A, L"Part Number"));
+			if (check_version(2, 6)) vec.push_back(make_field_byte(0x1B, L"Attributes"));
+			if (check_version(2, 7)) vec.push_back(make_field_dword(0x1C, L"Extended Size"));
+			if (check_version(2, 7)) vec.push_back(make_field_word(0x20, L"Configured Memory Speed"));
+			if (check_version(2, 8)) vec.push_back(make_field_word(0x22, L"Minimum voltage"));
+			if (check_version(2, 8)) vec.push_back(make_field_word(0x24, L"Maximum voltage"));
+			if (check_version(2, 8)) vec.push_back(make_field_word(0x26, L"Configured voltage"));
+			if (check_version(3, 2)) vec.push_back(make_field_byte(0x28, L"Memory Technology"));
+			if (check_version(3, 2)) vec.push_back(make_field_word(0x29, L"Memory Operating Mode Capability"));
+			if (check_version(3, 2)) vec.push_back(make_field_string(0x2B, L"Firmware Version"));
+			if (check_version(3, 2)) vec.push_back(make_field_word(0x2C, L"Module Manufacturer ID"));
+			if (check_version(3, 2)) vec.push_back(make_field_word(0x2E, L"Module Product ID"));
+			if (check_version(3, 2)) vec.push_back(make_field_word(0x30, L"Memory Subsystem Controller Manufacturer ID"));
+			if (check_version(3, 2)) vec.push_back(make_field_word(0x32, L"Memory Subsystem Controller Product ID"));
+			if (check_version(3, 2)) vec.push_back(make_field_qword(0x34, L"Non-volatile Size"));
+			if (check_version(3, 2)) vec.push_back(make_field_qword(0x3C, L"Volatile Size"));
+			if (check_version(3, 2)) vec.push_back(make_field_qword(0x44, L"Cache Size"));
+			if (check_version(3, 2)) vec.push_back(make_field_qword(0x4C, L"Logical Size"));
 		}
 		else if (Type() == 19) {
-
+			
 		}
 		else if (Type() == 32) {
 
