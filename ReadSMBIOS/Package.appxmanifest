@@ -11,7 +11,7 @@
   <Identity
     Name="62337tanitanin.ReadSMBIOS"
     Publisher="CN=118F8D4F-3F52-4C4B-A766-98177081E9E2"
-    Version="0.9.6.0" />
+    Version="0.9.7.0" />
 
   <mp:PhoneIdentity PhoneProductId="367fa320-8602-4437-8746-b3eba9848bc0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
