@@ -114,12 +114,12 @@ namespace winrt::SystemFirmwareTable::implementation
 	}
 	SystemFirmwareTable::SMBIOSField SMBIOSStructure::make_field_dword(byte offset, hstring name, hstring description = L"") {
 		hstring type = L"DWORD";
-		auto value = GetByte(offset);
+		auto value = GetDword(offset);
 		return make_field(offset, name, type, winrt::box_value(value), description);
 	}
 	SystemFirmwareTable::SMBIOSField SMBIOSStructure::make_field_qword(byte offset, hstring name, hstring description = L"") {
 		hstring type = L"QWORD";
-		auto value = GetByte(offset);
+		auto value = GetQword(offset);
 		return make_field(offset, name, type, winrt::box_value(value), description);
 	}
 	SystemFirmwareTable::SMBIOSField SMBIOSStructure::make_field_string(byte offset, hstring name, hstring description = L"") {
