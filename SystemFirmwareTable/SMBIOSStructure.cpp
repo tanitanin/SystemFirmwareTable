@@ -316,7 +316,12 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(3, 2)) vec.push_back(make_field_qword(0x4C, L"Logical Size"));
 		}
 		else if (Type() == 19) {
-			
+			if (check_version(2, 1)) vec.push_back(make_field_dword(0x04, L"Starting Address"));
+			if (check_version(2, 1)) vec.push_back(make_field_dword(0x08, L"Ending Address"));
+			if (check_version(2, 1)) vec.push_back(make_field_word(0x0C, L"Memory Array Handle"));
+			if (check_version(2, 1)) vec.push_back(make_field_byte(0x0E, L"Partition Width"));
+			if (check_version(2, 7)) vec.push_back(make_field_qword(0x0F, L"Extended Starting Address"));
+			if (check_version(2, 7)) vec.push_back(make_field_qword(0x17, L"Extended Ending Address"));
 		}
 		else if (Type() == 32) {
 
