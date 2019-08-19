@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace ReadSMBIOS.Core.Models
 {
@@ -12,6 +13,10 @@ namespace ReadSMBIOS.Core.Models
             Name = value.Name;
             Type = value.Type;
             Value = value.Value;
+            if (Value is IEnumerable<byte> bytes)
+            {
+                Value = bytes.Aggregate("", (a, b) => a + $" {b:X2}").Trim();
+            }
         }
 
         public string Offset { get; set; }
