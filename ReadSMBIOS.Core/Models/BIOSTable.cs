@@ -33,6 +33,7 @@ namespace ReadSMBIOS.Core.Models
                     case 16:
                     case 17:
                     case 19:
+                    case 32:
                         Items.Add(new BIOSStructureItem(structure));
                         break;
                 }

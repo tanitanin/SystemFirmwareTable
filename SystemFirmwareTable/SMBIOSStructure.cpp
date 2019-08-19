@@ -324,7 +324,8 @@ namespace winrt::SystemFirmwareTable::implementation
 			if (check_version(2, 7)) vec.push_back(make_field_qword(0x17, L"Extended Ending Address"));
 		}
 		else if (Type() == 32) {
-
+			vec.push_back(make_field_bytes(0x04, 6, L"Reserved"));
+			vec.push_back(make_field_bytes(0x0A, Length() - 10, L"Boot Status"));
 		}
 		return winrt::single_threaded_vector(std::move(vec)).GetView();
 	}
