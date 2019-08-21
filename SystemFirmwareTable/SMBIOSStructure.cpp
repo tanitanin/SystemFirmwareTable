@@ -138,14 +138,49 @@ namespace winrt::SystemFirmwareTable::implementation
 		{
 		case 0:   return L"BIOS Information";
 		case 1:   return L"System Information";
+		case 2:   return L"Baseboard Information";
 		case 3:   return L"System Enclosure";
 		case 4:   return L"Processor Information";
+		// type 5 and 6 are obsoleted
 		case 7:   return L"Cache Information";
+		case 8:   return L"Port Connector Information";
 		case 9:   return L"System Slots";
+		// type 10 is obsoleted
+		case 11:  return L"OEM Strings";
+		case 12:  return L"System Configuration Options";
+		case 13:  return L"BIOS Language Information";
+		case 14:  return L"Group Associations";
+		case 15:  return L"System Event Log";
 		case 16:  return L"Physical Memory Array";
 		case 17:  return L"Memory Device";
+		case 18:  return L"32-Bit Memory Error Information";
 		case 19:  return L"Memory Array Mapped Address";
+		case 20:  return L"Memory Device Mapped Address";
+		case 21:  return L"Built-in Pointing Device";
+		case 22:  return L"Portable Battery";
+		case 23:  return L"System Reset";
+		case 24:  return L"Hardware Security";
+		case 25:  return L"System Power Controls";
+		case 26:  return L"Voltage Probe";
+		case 27:  return L"Cooling Device";
+		case 28:  return L"Temperature Probe";
+		case 29:  return L"Electrical Current Probe";
+		case 30:  return L"Out-of-Band Remote Access";
+		case 31:  return L"Boot Integrity Services (BIS) Entry Point";
 		case 32:  return L"System Boot Information";
+		case 33:  return L"64-Bit Memory Error Information";
+		case 34:  return L"Management Device";
+		case 35:  return L"Management Device Component";
+		case 36:  return L"Management Device Threshold Data";
+		case 37:  return L"Memory Channel";
+		case 38:  return L"IPMI Device Information";
+		case 39:  return L"System Power Supply";
+		case 40:  return L"Additional Information";
+		case 41:  return L"Onboard Devices Extended Information";
+		case 42:  return L"Management Controller Host Interface";
+		case 43:  return L"TPM Device";
+		case 126: return L"Inactive";
+		case 127: return L"End-of-Table";
 		default:  return L"Unknown";
 		}
 	}
